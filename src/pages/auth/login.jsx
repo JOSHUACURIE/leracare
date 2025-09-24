@@ -10,7 +10,7 @@ export default function Login() {
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState({ type: "", text: "" });
-  const [showPassword, setShowPassword] = useState(false); // New state for password visibility
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const { login } = useAuth();
 
@@ -54,7 +54,7 @@ export default function Login() {
       setLoading(true);
       setMessage({ type: "", text: "" });
 
-      // ✅ AuthContext login
+      // ✅ AuthContext login always sends { email, password }
       const result = await login({
         email: formData.email,
         password: formData.password,
@@ -63,10 +63,9 @@ export default function Login() {
       if (!result.success) {
         setMessage({
           type: "error",
-          text: "Invalid credentials. Please try again.",
+          text: result.msg || "Invalid credentials. Please try again.",
         });
         setErrors({ password: "Invalid email or password" });
-        setLoading(false);
         return;
       }
 
@@ -114,7 +113,7 @@ export default function Login() {
           <Input
             label="Email Address"
             type="email"
-            name="email"
+            name="email" // ✅ must be email
             placeholder="Enter your email"
             value={formData.email}
             onChange={handleChange}
@@ -122,13 +121,12 @@ export default function Login() {
             helpText={errors.email || ""}
             required
             disabled={loading}
-          
           />
 
           <Input
             label="Password"
-            type={showPassword ? "text" : "password"} // Toggle between text and password
-            name="password"
+            type={showPassword ? "text" : "password"}
+            name="password" // ✅ must be password
             placeholder="Enter your password"
             value={formData.password}
             onChange={handleChange}
@@ -136,7 +134,6 @@ export default function Login() {
             helpText={errors.password || ""}
             required
             disabled={loading}
-           
             rightIcon={
               <button
                 type="button"
