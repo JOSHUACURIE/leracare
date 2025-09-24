@@ -1,0 +1,191 @@
+/* PatientFeedbackForm.css */
+
+.feedback-container {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #f9fbfd;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.feedback-header h2 {
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.feedback-header p {
+  color: #7f8c8d;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.form-group input:disabled,
+.form-group textarea:disabled {
+  background-color: #f1f1f1;
+  color: #999;
+}
+
+.radio-group {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-weight: 500;
+  color: #555;
+}
+
+.radio-label input {
+  cursor: pointer;
+}
+
+.example-text {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: #7f8c8d;
+  font-style: italic;
+}
+
+.file-upload {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.file-upload input {
+  display: none;
+}
+
+.file-label {
+  padding: 0.5rem 1rem;
+  background: #e1f0fa;
+  border: 1px dashed #3498db;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #2980b9;
+  transition: background 0.3s;
+}
+
+.file-label:hover {
+  background: #d0e8f7;
+}
+
+.file-name {
+  font-size: 0.9rem;
+  color: #27ae60;
+}
+
+.checkbox-group label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  color: #555;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+.checkbox-group input {
+  margin-top: 0.2rem;
+  cursor: pointer;
+}
+
+.submit-btn {
+  padding: 0.8rem 2rem;
+  background: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: background 0.3s;
+}
+
+.submit-btn:hover {
+  background: #219d55;
+}
+
+.confirmation-note {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #e8f5e9;
+  border-left: 4px solid #27ae60;
+  font-size: 0.9rem;
+  color: #2c3e50;
+  line-height: 1.5;
+}
+
+.privacy-note {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #eee;
+}
+
+.privacy-note h4 {
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.privacy-note p {
+  color: #7f8c8d;
+  font-size: 0.95rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .feedback-container {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+
+  .radio-group {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .file-upload {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

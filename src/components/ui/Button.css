@@ -1,0 +1,154 @@
+/* src/components/ui/Button.css */
+
+/* ===== BASE BUTTON STYLES ===== */
+.hospital-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+  padding: 0 1.25rem;
+  text-decoration: none;
+  font-family: inherit;
+  line-height: 1.5;
+  
+}
+
+/* Size Variants */
+.hospital-btn--sm {
+  font-size: 0.875rem;
+  height: 2.5rem;
+  padding: 0 1rem;
+}
+
+.hospital-btn--md {
+  font-size: 1rem;
+  height: 3rem;
+}
+
+.hospital-btn--lg {
+  font-size: 1.125rem;
+  height: 3.5rem;
+  padding: 0 1.5rem;
+}
+
+/* Full Width */
+.hospital-btn--fullwidth {
+  width: 100%;
+}
+
+/* ===== VARIANT: PRIMARY ===== */
+.hospital-btn--primary {
+  background: #1E88E5; /* primary */
+  color: white;
+  box-shadow: 0 2px 4px rgba(30, 136, 229, 0.3);
+}
+
+.hospital-btn--primary:hover:not(:disabled):not([aria-busy="true"]) {
+  background: #1976D2;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(30, 136, 229, 0.4);
+}
+
+.hospital-btn--primary:active:not(:disabled):not([aria-busy="true"]) {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(30, 136, 229, 0.3);
+}
+
+/* ===== VARIANT: SECONDARY ===== */
+.hospital-btn--secondary {
+  background: #43A047; /* secondary */
+  color: white;
+  box-shadow: 0 2px 4px rgba(67, 160, 71, 0.3);
+}
+
+.hospital-btn--secondary:hover:not(:disabled):not([aria-busy="true"]) {
+  background: #388E3C;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(67, 160, 71, 0.4);
+}
+
+.hospital-btn--secondary:active:not(:disabled):not([aria-busy="true"]) {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(67, 160, 71, 0.3);
+}
+
+/* ===== VARIANT: DANGER ===== */
+.hospital-btn--danger {
+  background: #E53935; /* danger */
+  color: white;
+  box-shadow: 0 2px 4px rgba(229, 57, 53, 0.3);
+}
+
+.hospital-btn--danger:hover:not(:disabled):not([aria-busy="true"]) {
+  background: #C62828;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(229, 57, 53, 0.4);
+}
+
+.hospital-btn--danger:active:not(:disabled):not([aria-busy="true"]) {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(229, 57, 53, 0.3);
+}
+
+/* ===== VARIANT: OUTLINE ===== */
+.hospital-btn--outline {
+  background: transparent;
+  color: #1E88E5;
+  border: 2px solid #1E88E5;
+}
+
+.hospital-btn--outline:hover:not(:disabled):not([aria-busy="true"]) {
+  background: rgba(30, 136, 229, 0.1);
+  transform: translateY(-1px);
+}
+
+.hospital-btn--outline:active:not(:disabled):not([aria-busy="true"]) {
+  transform: translateY(0);
+}
+
+/* ===== DISABLED STATE ===== */
+.hospital-btn:disabled,
+.hospital-btn[aria-busy="true"] {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* ===== LOADING SPINNER ===== */
+.hospital-btn-spinner {
+  display: inline-block;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ===== FOCUS STATE (Accessibility) ===== */
+.hospital-btn:focus-visible {
+  outline: 3px solid rgba(30, 136, 229, 0.4);
+  outline-offset: 2px;
+}
+
+/* ===== ICON BUTTON SUPPORT ===== */
+.hospital-btn svg {
+  margin-right: 0.5rem;
+}
+
+.hospital-btn .icon-right {
+  margin-left: 0.5rem;
+  margin-right: 0;
+}

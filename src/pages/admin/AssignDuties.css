@@ -1,0 +1,235 @@
+/* src/pages/admin/AssignDuties.css */
+
+/* ===== GLOBAL & LAYOUT STYLES ===== */
+.admin-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.admin-content {
+  display: flex;
+  flex: 1;
+}
+
+.admin-main {
+  flex: 1;
+  padding: 2rem;
+  background-color: #ffffff;
+  min-height: 100vh;
+  /* Adjust for sidebar on larger screens */
+  margin-left: 260px;
+  transition: margin-left 0.3s ease;
+}
+
+/* Base styles for the Card component acting as a container */
+.mb-8 {
+  margin-bottom: 2rem;
+}
+
+/* ===== MOBILE RESPONSIVENESS ===== */
+
+/* Adjust main content area on medium screens and down */
+@media (max-width: 1024px) {
+  .admin-main {
+    margin-left: 0;
+  }
+}
+
+/* Adjust layout on small screens (tablets & below) */
+@media (max-width: 768px) {
+  .admin-main {
+    padding: 1rem;
+  }
+  
+  .hospital-form-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .hospital-form-actions {
+    flex-direction: column;
+  }
+
+  .hospital-title {
+    font-size: 1.5rem;
+  }
+
+  .hospital-subtitle {
+    font-size: 1rem;
+  }
+}
+
+/* Further adjustments for extra small screens (phones) */
+@media (max-width: 480px) {
+  .hospital-form-group input,
+  .hospital-form-group select,
+  .hospital-form-group textarea {
+    padding: 0.6rem;
+    font-size: 0.95rem;
+  }
+
+  .hospital-form-actions {
+    gap: 0.5rem;
+  }
+
+  .hospital-form-actions button {
+    width: 100%;
+  }
+}
+
+/* ===== COMPONENT STYLES (FROM ORIGINAL) ===== */
+
+/* Loading State */
+.hospital-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  background: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.hospital-spinner {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 3px solid rgba(30, 136, 229, 0.3);
+  border-top: 3px solid #1E88E5;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Header Styles */
+.hospital-header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.hospital-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1E88E5;
+  margin-bottom: 0.5rem;
+}
+
+.hospital-subtitle {
+  font-size: 1.125rem;
+  color: #546E7A;
+}
+
+/* Message Toast */
+.hospital-message {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
+  font-weight: 500;
+  border: 1px solid;
+  animation: slideIn 0.3s ease;
+}
+
+.hospital-message--success {
+  background: rgba(67, 160, 71, 0.1);
+  color: #43A047;
+  border-color: rgba(67, 160, 71, 0.3);
+}
+
+.hospital-message--error {
+  background: rgba(229, 57, 53, 0.1);
+  color: #E53935;
+  border-color: rgba(229, 57, 53, 0.3);
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Form Styles */
+.hospital-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.hospital-form-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.hospital-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Doctor Search Dropdown */
+.hospital-doctor-search {
+  position: relative;
+}
+
+.hospital-doctor-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #ECEFF1;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 100;
+  margin-top: 0.5rem;
+}
+
+.hospital-doctor-item {
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid #F5F7FA;
+}
+
+.hospital-doctor-item:hover {
+  background: #F5F7FA;
+  transform: translateX(4px);
+}
+
+.hospital-doctor-item:last-child {
+  border-bottom: none;
+}
+
+/* Textarea Styles */
+.hospital-form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #ECEFF1;
+  border-radius: 0.5rem;
+  font-family: inherit;
+  font-size: 1rem;
+  resize: vertical;
+  min-height: 80px;
+}
+
+.hospital-form-group textarea:focus {
+  outline: none;
+  border-color: #1E88E5;
+  box-shadow: 0 0 0 3px rgba(30, 136, 229, 0.2);
+}
+
+/* Form Actions */
+.hospital-form-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  padding-top: 1rem;
+  border-top: 1px solid #ECEFF1;
+}

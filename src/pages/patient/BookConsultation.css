@@ -1,0 +1,410 @@
+/* src/pages/patient/BookConsultation.css */
+
+/* ===== BASE STYLES ===== */
+.book-consultation-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.book-consultation-content {
+  display: flex;
+  flex: 1;
+  position: relative;
+}
+
+.book-consultation-main {
+  flex: 1;
+  padding: 1.5rem;
+  background-color: #F5F7FA;
+  margin-left: 260px; /* Same as sidebar width */
+  min-height: calc(100vh - 64px); /* Full height minus navbar */
+  transition: margin-left 0.3s ease; /* Smooth transition for sidebar collapse */
+}
+
+/* ===== LOADING STATE ===== */
+.hospital-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  background: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.hospital-spinner {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 3px solid rgba(30, 136, 229, 0.3);
+  border-top: 3px solid #1E88E5;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-bottom: 1rem;
+}
+
+/* ===== HEADER STYLES ===== */
+.hospital-header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.hospital-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1E88E5;
+  margin-bottom: 0.5rem;
+}
+
+.hospital-subtitle {
+  font-size: 1.125rem;
+  color: #546E7A;
+}
+
+/* ===== MESSAGE TOAST ===== */
+.hospital-message {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
+  font-weight: 500;
+  animation: slideIn 0.3s ease;
+}
+
+.hospital-message--success {
+  background: rgba(67, 160, 71, 0.1);
+  color: #43A047;
+  border: 1px solid rgba(67, 160, 71, 0.3);
+}
+
+.hospital-message--error {
+  background: rgba(229, 57, 53, 0.1);
+  color: #E53935;
+  border: 1px solid rgba(229, 57, 53, 0.3);
+}
+
+/* ===== BOOKING STEPS ===== */
+.booking-steps {
+  padding: 1.5rem;
+}
+
+.step-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.step-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #263238;
+  border-bottom: 2px solid #ECEFF1;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* ===== DOCTOR SELECTION ===== */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.form-label {
+  font-weight: 600;
+  color: #263238;
+  font-size: 0.875rem;
+}
+
+.custom-select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #ECEFF1;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  background: white;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.custom-select:focus {
+  outline: none;
+  border-color: #1E88E5;
+  box-shadow: 0 0 0 3px rgba(30, 136, 229, 0.2);
+}
+
+.doctors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.doctor-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  border: 1px solid #ECEFF1;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  transition: all 0.2s ease;
+}
+
+.doctor-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.doctor-info {
+  flex: 1;
+}
+
+.doctor-name {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #263238;
+  margin: 0 0 0.25rem 0;
+}
+
+.doctor-specialty {
+  font-size: 0.9rem;
+  color: #1E88E5;
+  font-weight: 500;
+  margin: 0 0 0.25rem 0;
+}
+
+.doctor-department {
+  font-size: 0.875rem;
+  color: #78909C;
+}
+
+.no-doctors {
+  text-align: center;
+  padding: 2rem;
+  color: #78909C;
+}
+
+/* ===== DATE & TIME SELECTION ===== */
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.date-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #ECEFF1;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.date-input:focus {
+  outline: none;
+  border-color: #1E88E5;
+  box-shadow: 0 0 0 3px rgba(30, 136, 229, 0.2);
+}
+
+.slots-info {
+  background: #E3F2FD;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin: 1rem 0;
+  color: #1E88E5;
+}
+
+/* ===== CONFIRMATION ===== */
+.appointment-preview {
+  background: #F5F7FA;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.preview-item {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 1rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #ECEFF1;
+}
+
+.preview-item:last-child {
+  border-bottom: none;
+}
+
+.preview-item strong {
+  font-weight: 600;
+  color: #263238;
+}
+
+.preview-item span {
+  color: #546E7A;
+}
+
+.reason-textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #ECEFF1;
+  border-radius: 0.5rem;
+  font-family: inherit;
+  font-size: 1rem;
+  resize: vertical;
+  min-height: 100px;
+  box-sizing: border-box;
+}
+
+.reason-textarea:focus {
+  outline: none;
+  border-color: #1E88E5;
+  box-shadow: 0 0 0 3px rgba(30, 136, 229, 0.2);
+}
+
+.error-text {
+  color: #E53935;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+/* ===== STEP ACTIONS ===== */
+.step-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  padding-top: 1rem;
+  border-top: 1px solid #ECEFF1;
+  margin-top: 1rem;
+}
+
+/* ===== BOOKING SUCCESS ===== */
+.booking-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.success-icon {
+  font-size: 3rem;
+  color: #43A047;
+  margin-bottom: 1rem;
+}
+
+.booking-success h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #263238;
+  margin-bottom: 1rem;
+}
+
+.booking-success p {
+  color: #546E7A;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+/* ===== SIDEBAR COLLAPSED STATE ===== */
+.hospital-sidebar.collapsed ~ .book-consultation-main {
+  margin-left: 72px; /* Same as collapsed sidebar width */
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .book-consultation-main {
+    margin-left: 0 !important;
+    padding: 1rem;
+    width: 100%;
+  }
+
+  .hospital-sidebar.mobile.collapsed {
+    transform: translateX(-100%);
+  }
+
+  .hospital-sidebar.mobile:not(.collapsed) {
+    transform: translateX(0);
+    z-index: 100;
+  }
+
+  .hospital-sidebar.mobile:not(.collapsed) ~ .book-consultation-main {
+    margin-left: 0;
+    pointer-events: none;
+  }
+
+  .hospital-title {
+    font-size: 1.5rem;
+  }
+
+  .hospital-subtitle {
+    font-size: 1rem;
+  }
+
+  .doctors-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .preview-item {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .step-actions {
+    flex-direction: column;
+  }
+
+  .step-actions button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .book-consultation-main {
+    padding: 0.75rem;
+  }
+
+  .doctor-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .hospital-title {
+    font-size: 1.25rem;
+  }
+
+  .hospital-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .booking-success {
+    padding: 1rem;
+  }
+
+  .booking-success h3 {
+    font-size: 1.25rem;
+  }
+}

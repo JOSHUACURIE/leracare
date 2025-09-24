@@ -1,0 +1,24 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.main-content {
+  margin-top: 64px;   /* below navbar */
+  margin-left: 260px; /* space for sidebar */
+  padding: 1.5rem;
+  transition: margin-left 0.3s ease;
+}
+
+.hospital-sidebar.collapsed ~ .main-content {
+  margin-left: 72px;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0 !important; /* sidebar slides over content */
+    margin-top: 64px; /* always below navbar */
+  }
+}

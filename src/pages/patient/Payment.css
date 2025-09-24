@@ -1,0 +1,486 @@
+/* src/pages/patient/Payment.css */
+
+/* ===== BASE STYLES ===== */
+.payments-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.payments-content {
+  display: flex;
+  flex: 1;
+  position: relative;
+}
+
+.payments-main {
+  flex: 1;
+  padding: 1.5rem;
+  background-color: #F5F7FA;
+  margin-left: 260px; /* Same as sidebar width */
+  min-height: calc(100vh - 64px); /* Full height minus navbar */
+  transition: margin-left 0.3s ease; /* Smooth transition for sidebar collapse */
+}
+
+/* ===== LOADING STATE ===== */
+.hospital-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  background: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.hospital-spinner {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 3px solid rgba(30, 136, 229, 0.3);
+  border-top: 3px solid #1E88E5;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-bottom: 1rem;
+}
+
+/* ===== HEADER STYLES ===== */
+.hospital-header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.hospital-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1E88E5;
+  margin-bottom: 0.5rem;
+}
+
+.hospital-subtitle {
+  font-size: 1.125rem;
+  color: #546E7A;
+}
+
+/* ===== MESSAGE TOAST ===== */
+.hospital-message {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
+  font-weight: 500;
+  animation: slideIn 0.3s ease;
+}
+
+.hospital-message--success {
+  background: rgba(67, 160, 71, 0.1);
+  color: #43A047;
+  border: 1px solid rgba(67, 160, 71, 0.3);
+}
+
+.hospital-message--error {
+  background: rgba(229, 57, 53, 0.1);
+  color: #E53935;
+  border: 1px solid rgba(229, 57, 53, 0.3);
+}
+
+.hospital-message--info {
+  background: rgba(30, 136, 229, 0.1);
+  color: #1E88E5;
+  border: 1px solid rgba(30, 136, 229, 0.3);
+}
+
+/* ===== STATS GRID ===== */
+.hospital-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #263238;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  color: #78909C;
+}
+
+/* ===== FILTERS ===== */
+.filters-card {
+  margin-bottom: 2rem;
+}
+
+.hospital-filters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  align-items: end;
+}
+
+.hospital-filter-select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #ECEFF1;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  background: white;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.hospital-filter-select:focus {
+  outline: none;
+  border-color: #1E88E5;
+  box-shadow: 0 0 0 3px rgba(30, 136, 229, 0.2);
+}
+
+.hospital-search-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #ECEFF1;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.hospital-search-input:focus {
+  outline: none;
+  border-color: #1E88E5;
+  box-shadow: 0 0 0 3px rgba(30, 136, 229, 0.2);
+}
+
+/* ===== PAYMENT STYLES ===== */
+.payment-status {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.payment-status--pending {
+  background: rgba(251, 140, 0, 0.1);
+  color: #FB8C00;
+}
+
+.payment-status--paid {
+  background: rgba(67, 160, 71, 0.1);
+  color: #43A047;
+}
+
+.payment-status--failed {
+  background: rgba(229, 57, 53, 0.1);
+  color: #E53935;
+}
+
+.payment-method {
+  font-weight: 500;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+}
+
+.amount {
+  font-weight: 700;
+  color: #263238;
+  font-size: 1.1rem;
+}
+
+/* ===== MODAL STYLES ===== */
+.hospital-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+.hospital-modal {
+  background: white;
+  border-radius: 0.75rem;
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.hospital-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 1.5rem 1rem;
+  border-bottom: 1px solid #ECEFF1;
+}
+
+.hospital-modal-header h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #263238;
+}
+
+.hospital-modal-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #78909C;
+  transition: color 0.2s ease;
+}
+
+.hospital-modal-close:hover {
+  color: #E53935;
+}
+
+.hospital-modal-body {
+  padding: 1.5rem;
+}
+
+/* ===== PAYMENT DETAILS ===== */
+.payment-details {
+  background: #F5F7FA;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.detail-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 1rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #ECEFF1;
+}
+
+.detail-row:last-child {
+  border-bottom: none;
+}
+
+.detail-row strong {
+  font-weight: 600;
+  color: #263238;
+}
+
+.detail-row span {
+  color: #546E7A;
+}
+
+/* ===== PAYMENT METHODS ===== */
+.payment-methods {
+  margin-bottom: 1.5rem;
+}
+
+.section-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #263238;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #ECEFF1;
+}
+
+.method-option {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid #ECEFF1;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.method-option:hover {
+  background: #F5F7FA;
+  transform: translateY(-1px);
+}
+
+.method-option input[type="radio"] {
+  margin-right: 1rem;
+  transform: scale(1.2);
+}
+
+.method-label {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  flex: 1;
+}
+
+.method-icon {
+  font-size: 1.5rem;
+}
+
+.method-text {
+  flex: 1;
+}
+
+.method-text strong {
+  display: block;
+  color: #263238;
+}
+
+.method-text small {
+  color: #78909C;
+  font-size: 0.875rem;
+}
+
+.phone-input {
+  margin: 1rem 0;
+}
+
+.phone-input label {
+  display: block;
+  font-weight: 600;
+  color: #263238;
+  margin-bottom: 0.5rem;
+}
+
+.phone-field {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #ECEFF1;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.phone-field:focus {
+  outline: none;
+  border-color: #1E88E5;
+  box-shadow: 0 0 0 3px rgba(30, 136, 229, 0.2);
+}
+
+/* ===== MODAL ACTIONS ===== */
+.modal-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  padding-top: 1rem;
+  border-top: 1px solid #ECEFF1;
+  margin-top: 1rem;
+}
+
+/* ===== SIDEBAR COLLAPSED STATE ===== */
+.hospital-sidebar.collapsed ~ .payments-main {
+  margin-left: 72px; /* Same as collapsed sidebar width */
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .payments-main {
+    margin-left: 0 !important;
+    padding: 1rem;
+    width: 100%;
+  }
+
+  .hospital-sidebar.mobile.collapsed {
+    transform: translateX(-100%);
+  }
+
+  .hospital-sidebar.mobile:not(.collapsed) {
+    transform: translateX(0);
+    z-index: 100;
+  }
+
+  .hospital-sidebar.mobile:not(.collapsed) ~ .payments-main {
+    margin-left: 0;
+    pointer-events: none;
+  }
+
+  .hospital-title {
+    font-size: 1.5rem;
+  }
+
+  .hospital-subtitle {
+    font-size: 1rem;
+  }
+
+  .hospital-stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hospital-modal {
+    width: 95%;
+    margin: 1rem;
+  }
+
+  .detail-row {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .method-label {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .modal-actions {
+    flex-direction: column;
+  }
+
+  .modal-actions button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .payments-main {
+    padding: 0.75rem;
+  }
+
+  .hospital-filters {
+    grid-template-columns: 1fr;
+  }
+
+  .hospital-title {
+    font-size: 1.25rem;
+  }
+
+  .hospital-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .payment-details {
+    padding: 1rem;
+  }
+
+  .method-option {
+    padding: 0.75rem;
+  }
+}

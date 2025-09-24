@@ -1,0 +1,236 @@
+/* src/components/ui/Input.css */
+
+/* ===== BASE INPUT WRAPPER ===== */
+.hospital-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  position: relative;
+  width: 100%;
+}
+
+/* ===== LABEL ===== */
+.hospital-input-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #263238; /* neutral-900 */
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: all 0.2s ease;
+}
+
+.hospital-input-required {
+  color: #E53935; /* danger */
+  font-size: 1.1em;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+/* ===== INPUT CONTAINER ===== */
+.hospital-input-container {
+  position: relative;
+  width: 100%;
+}
+
+/* ===== INPUT FIELD ===== */
+.hospital-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 2px solid #ECEFF1; /* neutral-200 */
+  border-radius: 0.5rem;
+  background: white;
+  color: #263238;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+  font-family: inherit;
+}
+
+.hospital-input:focus {
+  border-color: #1E88E5; /* primary */
+  box-shadow: 0 0 0 3px rgba(30, 136, 229, 0.2);
+  transform: translateY(-1px);
+}
+
+.hospital-input::placeholder {
+  color: #90A4AE;
+  transition: all 0.3s ease;
+}
+
+.hospital-input:focus::placeholder {
+  color: #78909C;
+}
+
+/* Icons spacing */
+.hospital-input.has-left-icon {
+  padding-left: 3rem;
+}
+
+.hospital-input.has-right-icon {
+  padding-right: 3rem;
+}
+
+/* ===== ICONS ===== */
+.hospital-input-left-icon,
+.hospital-input-right-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 100%;
+  pointer-events: none;
+  color: #78909C;
+  transition: all 0.3s ease;
+}
+
+.hospital-input-left-icon {
+  left: 0;
+}
+
+.hospital-input-right-icon {
+  right: 0;
+}
+
+.hospital-input:focus + .hospital-input-left-icon,
+.hospital-input:focus + .hospital-input-right-icon {
+  color: #1E88E5;
+}
+
+/* ===== LOADING SPINNER ===== */
+.hospital-input-spinner {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid rgba(30, 136, 229, 0.3);
+  border-top: 2px solid #1E88E5;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ===== VALIDATION STATES ===== */
+/* SUCCESS */
+.hospital-input-wrapper--success .hospital-input {
+  border-color: #43A047; /* secondary */
+}
+
+.hospital-input-wrapper--success .hospital-input:focus {
+  box-shadow: 0 0 0 3px rgba(67, 160, 71, 0.2);
+}
+
+.hospital-input-wrapper--success .hospital-input-left-icon,
+.hospital-input-wrapper--success .hospital-input-right-icon {
+  color: #43A047;
+}
+
+/* ERROR */
+.hospital-input-wrapper--error .hospital-input {
+  border-color: #E53935; /* danger */
+}
+
+.hospital-input-wrapper--error .hospital-input:focus {
+  box-shadow: 0 0 0 3px rgba(229, 57, 53, 0.2);
+}
+
+.hospital-input-wrapper--error .hospital-input-left-icon,
+.hospital-input-wrapper--error .hospital-input-right-icon {
+  color: #E53935;
+}
+
+/* WARNING */
+.hospital-input-wrapper--warning .hospital-input {
+  border-color: #FB8C00; /* accent */
+}
+
+.hospital-input-wrapper--warning .hospital-input:focus {
+  box-shadow: 0 0 0 3px rgba(251, 140, 0, 0.2);
+}
+
+.hospital-input-wrapper--warning .hospital-input-left-icon,
+.hospital-input-wrapper--warning .hospital-input-right-icon {
+  color: #FB8C00;
+}
+
+/* ===== HELP TEXT ===== */
+.hospital-input-help {
+  font-size: 0.75rem;
+  margin: 0.25rem 0 0;
+  padding-left: 0.25rem;
+  transition: all 0.2s ease;
+}
+
+.hospital-input-help--default {
+  color: #78909C;
+}
+
+.hospital-input-help--success {
+  color: #43A047;
+}
+
+.hospital-input-help--error {
+  color: #E53935;
+}
+
+.hospital-input-help--warning {
+  color: #FB8C00;
+}
+
+/* ===== DISABLED STATE ===== */
+.hospital-input:disabled {
+  background: #F5F7FA;
+  border-color: #CFD8DC;
+  color: #90A4AE;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* ===== HOVER STATE ===== */
+.hospital-input:not(:disabled):not(:focus):hover {
+  border-color: #B0BEC5;
+  transform: translateY(-1px);
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  .hospital-input {
+    padding: 0.6rem 0.75rem;
+    font-size: 0.95rem;
+  }
+
+  .hospital-input.has-left-icon {
+    padding-left: 2.5rem;
+  }
+
+  .hospital-input.has-right-icon {
+    padding-right: 2.5rem;
+  }
+
+  .hospital-input-left-icon,
+  .hospital-input-right-icon {
+    width: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hospital-input-label {
+    font-size: 0.8rem;
+  }
+
+  .hospital-input {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+  }
+}

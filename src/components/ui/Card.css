@@ -1,0 +1,100 @@
+/* src/components/ui/Card.css */
+
+/* ===== BASE CARD STYLES ===== */
+.hospital-card {
+  background: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  position: relative;
+}
+
+.hospital-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* ===== CARD BODY ===== */
+.hospital-card-body {
+  padding: 1.5rem;
+}
+
+/* ===== CARD HEADER ===== */
+.hospital-card-header {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #ECEFF1; /* neutral-200 */
+  background: #FAFAFA;
+  font-weight: 600;
+  font-size: 1.125rem;
+  color: #263238; /* neutral-900 */
+}
+
+/* ===== CARD FOOTER ===== */
+.hospital-card-footer {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid #ECEFF1; /* neutral-200 */
+  background: #FAFAFA;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+/* ===== VARIANT: HIGHLIGHT (for important stats) ===== */
+.hospital-card--highlight {
+  border-top: 4px solid #1E88E5; /* primary */
+  background: linear-gradient(135deg, rgba(30, 136, 229, 0.05), rgba(30, 136, 229, 0.02));
+}
+
+.hospital-card--highlight .hospital-card-header {
+  background: rgba(30, 136, 229, 0.1);
+  border-bottom-color: rgba(30, 136, 229, 0.2);
+}
+
+.hospital-card--highlight:hover {
+  box-shadow: 0 8px 20px rgba(30, 136, 229, 0.15);
+}
+
+/* ===== VARIANT: ALERT (for warnings, unpaid bills) ===== */
+.hospital-card--alert {
+  border-top: 4px solid #E53935; /* danger */
+  background: linear-gradient(135deg, rgba(229, 57, 53, 0.05), rgba(229, 57, 53, 0.02));
+}
+
+.hospital-card--alert .hospital-card-header {
+  background: rgba(229, 57, 53, 0.1);
+  border-bottom-color: rgba(229, 57, 53, 0.2);
+  color: #E53935;
+}
+
+.hospital-card--alert:hover {
+  box-shadow: 0 8px 20px rgba(229, 57, 53, 0.15);
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  .hospital-card {
+    border-radius: 0.5rem;
+  }
+
+  .hospital-card-body,
+  .hospital-card-header,
+  .hospital-card-footer {
+    padding: 1rem;
+  }
+
+  .hospital-card-header {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hospital-card {
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  }
+
+  .hospital-card:hover {
+    transform: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+}
