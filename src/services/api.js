@@ -3,7 +3,7 @@ import axios from "axios";
 
 // Create axios instance
 const API = axios.create({
-  baseURL: "https://mercy-3yeo.onrender.com", // ✅ Your backend URL
+  baseURL: "https://mercy-3yeo.onrender.com/api", // ✅ Your backend URL
   timeout: 10000, // 10 second timeout
   headers: {
     "Content-Type": "application/json",
